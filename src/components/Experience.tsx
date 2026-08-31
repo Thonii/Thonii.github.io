@@ -111,7 +111,10 @@ export const Experience = () => {
                 {t.experience.atsDescription}
               </p>
               <a
-                href="#contacto"
+                href="/Anthony_Villalobos_CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                download="Anthony_Villalobos_CV.pdf"
                 className="inline-flex items-center gap-2 text-xs font-bold text-primary hover:underline"
               >
                 <span>{t.experience.requestCv}</span>

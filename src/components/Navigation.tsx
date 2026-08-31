@@ -93,7 +93,10 @@ export const Navigation = () => {
               <Linkedin size={18} />
             </a>
             <a
-              href="#contacto"
+              href="/Anthony_Villalobos_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              download="Anthony_Villalobos_CV.pdf"
               className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary hover:bg-primary-hover text-slate-950 font-semibold text-xs tracking-wide transition-all shadow-glow-emerald"
             >
               <FileText size={15} />
@@ -154,6 +157,18 @@ export const Navigation = () => {
             >
               <Linkedin size={16} />
               <span>LinkedIn</span>
+            </a>
+          </div>
+          <div className="pt-2">
+            <a
+              href="/Anthony_Villalobos_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              download="Anthony_Villalobos_CV.pdf"
+              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg bg-primary text-slate-950 font-bold text-xs shadow-glow-emerald"
+            >
+              <FileText size={15} />
+              <span>{t.nav.downloadCv}</span>
             </a>
           </div>
         </div>
