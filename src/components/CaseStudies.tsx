@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import { SystemDiagram } from './SystemDiagram';
 import { useLanguage } from '@/i18n/LanguageContext';
+import { MorphIcon } from '@/components/ui/MorphIcon';
 import {
   Database,
   Cpu,
   Smartphone,
-  ChevronDown,
-  ChevronUp,
   CheckCircle2,
   AlertCircle,
   TrendingUp,
@@ -147,11 +146,16 @@ export const CaseStudies = () => {
                     </div>
 
                     <button
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-elevated border border-surface-border text-xs font-semibold text-slate-200 hover:text-primary transition-colors"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-elevated border border-surface-border text-xs font-semibold text-slate-200 hover:text-primary transition-colors group"
                       aria-label={isExpanded ? t.caseStudies.hideDeepDive : t.caseStudies.viewDeepDive}
                     >
                       <span>{isExpanded ? t.caseStudies.hideDeepDive : t.caseStudies.viewDeepDive}</span>
-                      {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                      <MorphIcon
+                        type="chevron-down-to-up"
+                        active={isExpanded}
+                        size={16}
+                        className="text-slate-300 group-hover:text-primary transition-colors"
+                      />
                     </button>
                   </div>
                 </div>

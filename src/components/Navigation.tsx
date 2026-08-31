@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Terminal, Github, Linkedin, Menu, X, FileText, Globe } from 'lucide-react';
+import { Terminal, Github, Linkedin, FileText, Globe } from 'lucide-react';
+import { MorphIcon } from '@/components/ui/MorphIcon';
 import { useLanguage } from '@/i18n/LanguageContext';
 
 export const Navigation = () => {
@@ -117,10 +118,10 @@ export const Navigation = () => {
 
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 rounded-lg bg-surface border border-surface-border text-slate-300 hover:text-slate-100"
-              aria-label="Abrir menú de navegación"
+              className="p-2 rounded-lg bg-surface border border-surface-border text-slate-300 hover:text-slate-100 hover:border-primary/50 transition-colors"
+              aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
             >
-              {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              <MorphIcon type="menu-to-x" active={isMobileMenuOpen} size={20} className="text-slate-200" />
             </button>
           </div>
         </div>

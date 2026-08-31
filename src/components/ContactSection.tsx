@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Mail, Linkedin, Phone, MapPin, Copy, Check, Send } from 'lucide-react';
+import { Mail, Linkedin, Phone, MapPin, Send } from 'lucide-react';
+import { MorphIcon } from '@/components/ui/MorphIcon';
 import { useLanguage } from '@/i18n/LanguageContext';
 
 export const ContactSection = () => {
@@ -50,11 +51,20 @@ export const ContactSection = () => {
 
                 <button
                   onClick={copyToClipboard}
-                  className="p-2 rounded-lg bg-surface border border-surface-border text-slate-300 hover:text-primary transition-colors flex-shrink-0"
-                  title="Copiar email"
-                  aria-label="Copiar email"
+                  className={`p-2.5 rounded-xl border transition-all duration-300 flex-shrink-0 flex items-center justify-center ${
+                    copied
+                      ? 'bg-primary/20 border-primary text-primary shadow-glow-emerald'
+                      : 'bg-surface border-surface-border text-slate-300 hover:text-primary hover:border-primary/50'
+                  }`}
+                  title={copied ? '¡Copiado al portapapeles!' : 'Copiar email'}
+                  aria-label="Copiar email al portapapeles"
                 >
-                  {copied ? <Check size={18} className="text-primary" /> : <Copy size={18} />}
+                  <MorphIcon
+                    type="copy-to-check"
+                    active={copied}
+                    size={18}
+                    className={copied ? 'text-primary' : 'text-slate-300'}
+                  />
                 </button>
               </div>
 

@@ -1,8 +1,11 @@
-import { ArrowRight, Database, Cpu, Sparkles, MapPin } from 'lucide-react';
+import { useState } from 'react';
+import { Database, Cpu, Sparkles, MapPin } from 'lucide-react';
+import { MorphIcon } from '@/components/ui/MorphIcon';
 import { useLanguage } from '@/i18n/LanguageContext';
 
 export const HeroSection = () => {
   const { t } = useLanguage();
+  const [isCtaHovered, setIsCtaHovered] = useState(false);
 
   return (
     <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
@@ -39,10 +42,17 @@ export const HeroSection = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
             <a
               href="#case-studies"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-primary hover:bg-primary-hover text-slate-950 font-bold text-sm tracking-wide transition-all shadow-glow-emerald"
+              onMouseEnter={() => setIsCtaHovered(true)}
+              onMouseLeave={() => setIsCtaHovered(false)}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-primary hover:bg-primary-hover text-slate-950 font-bold text-sm tracking-wide transition-all shadow-glow-emerald group"
             >
               <span>{t.hero.ctaCaseStudies}</span>
-              <ArrowRight size={18} />
+              <MorphIcon
+                type="arrow-to-sparkles"
+                active={isCtaHovered}
+                size={18}
+                className="text-slate-950 transition-transform"
+              />
             </a>
 
             <a
