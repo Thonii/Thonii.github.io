@@ -1,6 +1,9 @@
 import { ArrowRight, Database, Cpu, Sparkles, MapPin } from 'lucide-react';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 export const HeroSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
       {/* Background Decorative Gradients */}
@@ -12,10 +15,10 @@ export const HeroSection = () => {
           {/* Status & Location Pill */}
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface border border-surface-border text-xs font-mono text-slate-300 mb-6 shadow-sm">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-primary font-semibold">Disponible para roles de Ingeniería Senior</span>
+            <span className="text-primary font-semibold">{t.hero.availableBadge}</span>
             <span className="text-slate-500">•</span>
             <span className="inline-flex items-center gap-1 text-slate-400">
-              <MapPin size={12} className="text-secondary" /> Lima, Perú (GMT-5)
+              <MapPin size={12} className="text-secondary" /> {t.hero.locationBadge}
             </span>
           </div>
 
@@ -25,12 +28,11 @@ export const HeroSection = () => {
           </h1>
 
           <p className="text-lg sm:text-2xl font-medium text-slate-300 mb-4 max-w-3xl mx-auto">
-            Senior Data & Software Engineer <span className="text-primary">|</span> AI Systems Architect
+            {t.hero.roleSubtitle}
           </p>
 
           <p className="text-base sm:text-lg text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Especializado en diseñar <strong>Lakehouses distribuidos de alto volumen (Spark, Iceberg)</strong>, 
-            orquestación de <strong>agentes de IA y workflows (n8n, Python)</strong>, y arquitecturas <strong>Local-First / Mobile-First</strong> con filosofía Solarpunk.
+            {t.hero.description}
           </p>
 
           {/* Action CTAs */}
@@ -39,7 +41,7 @@ export const HeroSection = () => {
               href="#case-studies"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-primary hover:bg-primary-hover text-slate-950 font-bold text-sm tracking-wide transition-all shadow-glow-emerald"
             >
-              <span>Explorar Case Studies de Arquitectura</span>
+              <span>{t.hero.ctaCaseStudies}</span>
               <ArrowRight size={18} />
             </a>
 
@@ -49,39 +51,39 @@ export const HeroSection = () => {
               rel="noopener noreferrer"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-surface border border-surface-border hover:border-slate-400 text-slate-200 font-semibold text-sm transition-all"
             >
-              <span>Ver Código en GitHub</span>
+              <span>{t.hero.ctaGithub}</span>
             </a>
           </div>
 
-          {/* Key Value Pillars Pills */}
+          {/* Key Value Pillars */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl mx-auto text-left">
-            <div className="flex items-center gap-3 p-3 rounded-xl bg-surface/70 border border-surface-border">
+            <div className="flex items-center gap-3 p-3.5 rounded-xl bg-surface border border-surface-border">
               <div className="p-2 rounded-lg bg-primary/10 text-primary">
                 <Database size={18} />
               </div>
               <div>
-                <p className="text-xs font-mono text-slate-400">Big Data Core</p>
-                <p className="text-xs font-semibold text-slate-200">Apache Spark & Iceberg</p>
+                <p className="text-xs font-mono text-slate-400">{t.hero.pillars.bigData.title}</p>
+                <p className="text-xs font-semibold text-slate-200">{t.hero.pillars.bigData.subtitle}</p>
               </div>
             </div>
 
-            <div className="flex items-center gap-3 p-3 rounded-xl bg-surface/70 border border-surface-border">
+            <div className="flex items-center gap-3 p-3.5 rounded-xl bg-surface border border-surface-border">
               <div className="p-2 rounded-lg bg-secondary/10 text-secondary">
                 <Cpu size={18} />
               </div>
               <div>
-                <p className="text-xs font-mono text-slate-400">AI-Native Systems</p>
-                <p className="text-xs font-semibold text-slate-200">Multi-Agent & n8n</p>
+                <p className="text-xs font-mono text-slate-400">{t.hero.pillars.ai.title}</p>
+                <p className="text-xs font-semibold text-slate-200">{t.hero.pillars.ai.subtitle}</p>
               </div>
             </div>
 
-            <div className="flex items-center gap-3 p-3 rounded-xl bg-surface/70 border border-surface-border">
+            <div className="flex items-center gap-3 p-3.5 rounded-xl bg-surface border border-surface-border">
               <div className="p-2 rounded-lg bg-accent/10 text-accent">
                 <Sparkles size={18} />
               </div>
               <div>
-                <p className="text-xs font-mono text-slate-400">Software Craft</p>
-                <p className="text-xs font-semibold text-slate-200">TypeScript & Mobile-First</p>
+                <p className="text-xs font-mono text-slate-400">{t.hero.pillars.fullstack.title}</p>
+                <p className="text-xs font-semibold text-slate-200">{t.hero.pillars.fullstack.subtitle}</p>
               </div>
             </div>
           </div>

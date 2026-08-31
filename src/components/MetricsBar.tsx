@@ -1,30 +1,33 @@
 import { BarChart3, Clock, ShieldCheck, Bot } from 'lucide-react';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 export const MetricsBar = () => {
+  const { t } = useLanguage();
+
   const metrics = [
     {
       icon: Clock,
-      value: '5+ Años',
-      label: 'Experiencia en Ingeniería de Datos y Software',
-      highlight: 'Despegar.com & TecnoAncon',
+      value: t.metrics.experience.value,
+      label: t.metrics.experience.label,
+      highlight: t.metrics.experience.highlight,
     },
     {
       icon: BarChart3,
-      value: '-30%',
-      label: 'Latencia y Tiempos de Cómputo en Pipelines Spark',
-      highlight: 'Optimización de Particionado',
+      value: t.metrics.spark.value,
+      label: t.metrics.spark.label,
+      highlight: t.metrics.spark.highlight,
     },
     {
       icon: ShieldCheck,
-      value: '99.8%',
-      label: 'Disponibilidad SLA en Data Marts Críticos',
-      highlight: 'Arquitectura Medallion',
+      value: t.metrics.sla.value,
+      label: t.metrics.sla.label,
+      highlight: t.metrics.sla.highlight,
     },
     {
       icon: Bot,
-      value: '85%',
-      label: 'Reducción de Intervención Manual con AI',
-      highlight: 'Orquestación n8n + Python',
+      value: t.metrics.ai.value,
+      label: t.metrics.ai.label,
+      highlight: t.metrics.ai.highlight,
     },
   ];
 

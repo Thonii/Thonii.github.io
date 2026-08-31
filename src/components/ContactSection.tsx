@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { Mail, Linkedin, Phone, MapPin, Copy, Check, Send } from 'lucide-react';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 export const ContactSection = () => {
+  const { t } = useLanguage();
   const [copied, setCopied] = useState(false);
   const email = 'villalobos.thony@gmail.com';
 
@@ -22,13 +24,13 @@ export const ContactSection = () => {
             <div className="text-center max-w-2xl mx-auto mb-10">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-elevated border border-surface-border text-xs font-mono text-primary mb-4">
                 <Send size={13} />
-                <span>INICIA UNA CONVERSACIÓN TÉCNICA</span>
+                <span>{t.contact.badge}</span>
               </div>
               <h2 className="text-3xl sm:text-4xl font-extrabold font-display text-slate-100 tracking-tight mb-4">
-                ¿Hablamos de Sistemas, Datos o Arquitectura?
+                {t.contact.title}
               </h2>
               <p className="text-sm sm:text-base text-slate-400 leading-relaxed">
-                Abierto a oportunidades como <strong>Senior Data Engineer</strong>, <strong>Senior Software Engineer</strong> o <strong>Lead Architect</strong> en empresas de alto crecimiento y escala global.
+                {t.contact.subtitle}
               </p>
             </div>
 
@@ -41,7 +43,7 @@ export const ContactSection = () => {
                     <Mail size={20} />
                   </div>
                   <div className="truncate">
-                    <p className="text-xs font-mono text-slate-400">Email Profesional</p>
+                    <p className="text-xs font-mono text-slate-400">{t.contact.emailLabel}</p>
                     <p className="text-sm font-semibold text-slate-100 truncate">{email}</p>
                   </div>
                 </div>
@@ -49,8 +51,8 @@ export const ContactSection = () => {
                 <button
                   onClick={copyToClipboard}
                   className="p-2 rounded-lg bg-surface border border-surface-border text-slate-300 hover:text-primary transition-colors flex-shrink-0"
-                  title="Copiar email al portapapeles"
-                  aria-label="Copiar email al portapapeles"
+                  title="Copiar email"
+                  aria-label="Copiar email"
                 >
                   {copied ? <Check size={18} className="text-primary" /> : <Copy size={18} />}
                 </button>
@@ -68,13 +70,13 @@ export const ContactSection = () => {
                     <Linkedin size={20} />
                   </div>
                   <div>
-                    <p className="text-xs font-mono text-slate-400">Red Profesional</p>
+                    <p className="text-xs font-mono text-slate-400">{t.contact.linkedinLabel}</p>
                     <p className="text-sm font-semibold text-slate-100 group-hover:text-secondary transition-colors">
                       anthony-villalobos
                     </p>
                   </div>
                 </div>
-                <span className="text-xs font-mono text-secondary">Conectar →</span>
+                <span className="text-xs font-mono text-secondary">→</span>
               </a>
 
               {/* Location Box */}
@@ -83,12 +85,12 @@ export const ContactSection = () => {
                   <MapPin size={20} />
                 </div>
                 <div>
-                  <p className="text-xs font-mono text-slate-400">Ubicación & Timezone</p>
-                  <p className="text-sm font-semibold text-slate-100">Ancón, Lima, Perú (GMT-5 / Remoto Global)</p>
+                  <p className="text-xs font-mono text-slate-400">{t.contact.locationLabel}</p>
+                  <p className="text-sm font-semibold text-slate-100">{t.contact.locationValue}</p>
                 </div>
               </div>
 
-              {/* Direct WhatsApp / Phone Box */}
+              {/* Direct WhatsApp Box */}
               <a
                 href="https://wa.me/51941221531"
                 target="_blank"
@@ -100,7 +102,7 @@ export const ContactSection = () => {
                     <Phone size={20} />
                   </div>
                   <div>
-                    <p className="text-xs font-mono text-slate-400">WhatsApp Directo</p>
+                    <p className="text-xs font-mono text-slate-400">{t.contact.whatsappLabel}</p>
                     <p className="text-sm font-semibold text-slate-100 group-hover:text-primary transition-colors">
                       +51 941 221 531
                     </p>
@@ -110,14 +112,14 @@ export const ContactSection = () => {
               </a>
             </div>
 
-            {/* Quick Action Button */}
+            {/* Direct Action Button */}
             <div className="text-center pt-2">
               <a
-                href={`mailto:${email}?subject=Oportunidad%20de%20Ingenier%C3%ADa%20-%20Anthony%20Villalobos`}
+                href={`mailto:${email}?subject=Engineering%20Opportunity%20-%20Anthony%20Villalobos`}
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-primary hover:bg-primary-hover text-slate-950 font-bold text-sm tracking-wide transition-all shadow-glow-emerald"
               >
                 <Mail size={18} />
-                <span>Enviar Correo Directo</span>
+                <span>{t.contact.sendEmailButton}</span>
               </a>
             </div>
           </div>

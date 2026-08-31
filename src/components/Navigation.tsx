@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
-import { Terminal, Github, Linkedin, Menu, X, FileText } from 'lucide-react';
+import { Terminal, Github, Linkedin, Menu, X, FileText, Globe } from 'lucide-react';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 export const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { language, toggleLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,18 +16,18 @@ export const Navigation = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Case Studies', href: '#case-studies' },
-    { name: 'Stack & Habilidades', href: '#tech-matrix' },
-    { name: 'Experiencia', href: '#experiencia' },
-    { name: 'Open Source', href: '#open-source' },
-    { name: 'Contacto', href: '#contacto' },
+    { name: t.nav.caseStudies, href: '#case-studies' },
+    { name: t.nav.techMatrix, href: '#tech-matrix' },
+    { name: t.nav.experience, href: '#experiencia' },
+    { name: t.nav.openSource, href: '#open-source' },
+    { name: t.nav.contact, href: '#contacto' },
   ];
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-background/85 backdrop-blur-md border-b border-surface-border py-3 shadow-lg shadow-black/20'
+          ? 'bg-background/90 backdrop-blur-md border-b border-surface-border py-3 shadow-lg shadow-black/20'
           : 'bg-transparent py-5'
       }`}
     >
@@ -48,7 +50,7 @@ export const Navigation = () => {
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
             {navLinks.map((link) => (
               <a
-                key={link.name}
+                key={link.href}
                 href={link.href}
                 className="hover:text-primary transition-colors py-1"
               >
@@ -57,8 +59,21 @@ export const Navigation = () => {
             ))}
           </nav>
 
-          {/* Action Buttons */}
+          {/* Action Buttons & Language Switcher */}
           <div className="hidden md:flex items-center gap-3">
+            {/* Language Switcher Button */}
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface border border-surface-border hover:border-primary text-slate-200 text-xs font-mono transition-colors"
+              title={language === 'es' ? 'Switch to English' : 'Cambiar a Español'}
+              aria-label="Cambiar idioma"
+            >
+              <Globe size={14} className="text-secondary" />
+              <span className={language === 'es' ? 'text-primary font-bold' : 'text-slate-400'}>ES</span>
+              <span className="text-slate-600">|</span>
+              <span className={language === 'en' ? 'text-primary font-bold' : 'text-slate-400'}>EN</span>
+            </button>
+
             <a
               href="https://github.com/Thonii"
               target="_blank"
@@ -82,18 +97,21 @@ export const Navigation = () => {
               className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary hover:bg-primary-hover text-slate-950 font-semibold text-xs tracking-wide transition-all shadow-glow-emerald"
             >
               <FileText size={15} />
-              <span>DESCARGAR CV</span>
+              <span>{t.nav.downloadCv}</span>
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu & Language Button */}
           <div className="flex md:hidden items-center gap-2">
-            <a
-              href="#contacto"
-              className="px-3 py-1.5 rounded-lg bg-primary text-slate-950 font-semibold text-xs transition-colors"
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-surface border border-surface-border text-xs font-mono text-slate-200"
+              aria-label="Cambiar idioma"
             >
-              CV
-            </a>
+              <Globe size={13} className="text-secondary" />
+              <span className="font-bold text-primary">{language.toUpperCase()}</span>
+            </button>
+
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2 rounded-lg bg-surface border border-surface-border text-slate-300 hover:text-slate-100"
@@ -110,7 +128,7 @@ export const Navigation = () => {
         <div className="md:hidden bg-surface/95 backdrop-blur-lg border-b border-surface-border px-4 pt-4 pb-6 space-y-3">
           {navLinks.map((link) => (
             <a
-              key={link.name}
+              key={link.href}
               href={link.href}
               onClick={() => setIsMobileMenuOpen(false)}
               className="block py-2 text-base font-medium text-slate-200 hover:text-primary border-b border-surface-border/40"

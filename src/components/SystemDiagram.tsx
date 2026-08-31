@@ -9,9 +9,10 @@ interface Step {
 interface SystemDiagramProps {
   title: string;
   steps: Step[];
+  stageLabel?: string;
 }
 
-export const SystemDiagram: React.FC<SystemDiagramProps> = ({ title, steps }) => {
+export const SystemDiagram: React.FC<SystemDiagramProps> = ({ title, steps, stageLabel = 'ETAPA' }) => {
   return (
     <div className="rounded-xl bg-surface-elevated/70 border border-surface-border p-5 my-6">
       <div className="flex items-center gap-2 mb-4">
@@ -27,7 +28,7 @@ export const SystemDiagram: React.FC<SystemDiagramProps> = ({ title, steps }) =>
           >
             <div>
               <div className="flex items-center justify-between mb-2">
-                <span className="text-xs font-mono font-bold text-primary">{item.step.split('.')[0]}. ETAPA</span>
+                <span className="text-xs font-mono font-bold text-primary">{item.step.split('.')[0]}. {stageLabel}</span>
                 <span className="w-2 h-2 rounded-full bg-primary/40 group-hover:bg-primary transition-colors" />
               </div>
               <h5 className="text-xs font-bold text-slate-200 mb-1.5 leading-snug">

@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { caseStudies, CaseStudy } from '@/data/caseStudiesData';
 import { SystemDiagram } from './SystemDiagram';
+import { useLanguage } from '@/i18n/LanguageContext';
 import {
   Database,
   Cpu,
@@ -16,15 +16,16 @@ import {
 } from 'lucide-react';
 
 export const CaseStudies = () => {
+  const { t } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState<'all' | 'data' | 'ai' | 'fullstack'>('all');
-  const [expandedId, setExpandedId] = useState<string>(caseStudies[0].id);
+  const [expandedId, setExpandedId] = useState<string>(t.caseStudies.items[0]?.id || 'scalable-lakehouse');
 
   const filteredStudies =
     selectedCategory === 'all'
-      ? caseStudies
-      : caseStudies.filter((cs) => cs.category === selectedCategory);
+      ? t.caseStudies.items
+      : t.caseStudies.items.filter((cs) => cs.category === selectedCategory);
 
-  const getCategoryIcon = (category: CaseStudy['category']) => {
+  const getCategoryIcon = (category: string) => {
     switch (category) {
       case 'data':
         return <Database size={16} className="text-primary" />;
@@ -32,6 +33,8 @@ export const CaseStudies = () => {
         return <Cpu size={16} className="text-secondary" />;
       case 'fullstack':
         return <Smartphone size={16} className="text-accent" />;
+      default:
+        return <Layers size={16} className="text-primary" />;
     }
   };
 
@@ -42,23 +45,23 @@ export const CaseStudies = () => {
         <div className="max-w-3xl mx-auto text-center mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-surface-border text-xs font-mono text-primary mb-3">
             <Layers size={14} />
-            <span>ARQUITECTURA & SYSTEM DESIGN</span>
+            <span>{t.caseStudies.badge}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-display text-slate-100 tracking-tight mb-4">
-            Case Studies de Ingeniería
+            {t.caseStudies.title}
           </h2>
           <p className="text-base sm:text-lg text-slate-400">
-            Desglose de problemas de escala real bajo el framework STAR (Situación, Tarea, Acción, Resultados) y diseño de sistemas.
+            {t.caseStudies.subtitle}
           </p>
         </div>
 
         {/* Category Filters */}
         <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
           {[
-            { id: 'all', label: 'Todos los Casos' },
-            { id: 'data', label: 'Big Data & Lakehouse (Despegar)' },
-            { id: 'ai', label: 'AI Multi-Agent & n8n' },
-            { id: 'fullstack', label: 'Mobile-First & Offline POS' },
+            { id: 'all', label: t.caseStudies.filterAll },
+            { id: 'data', label: t.caseStudies.filterData },
+            { id: 'ai', label: t.caseStudies.filterAi },
+            { id: 'fullstack', label: t.caseStudies.filterFullstack },
           ].map((tab) => (
             <button
               key={tab.id}
@@ -145,9 +148,9 @@ export const CaseStudies = () => {
 
                     <button
                       className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-elevated border border-surface-border text-xs font-semibold text-slate-200 hover:text-primary transition-colors"
-                      aria-label="Ver detalles completos del caso de estudio"
+                      aria-label={isExpanded ? t.caseStudies.hideDeepDive : t.caseStudies.viewDeepDive}
                     >
-                      <span>{isExpanded ? 'Ocultar Análisis' : 'Ver Deep Dive'}</span>
+                      <span>{isExpanded ? t.caseStudies.hideDeepDive : t.caseStudies.viewDeepDive}</span>
                       {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                     </button>
                   </div>
@@ -173,7 +176,7 @@ export const CaseStudies = () => {
                       <div className="p-5 rounded-xl bg-surface border border-surface-border">
                         <div className="flex items-center gap-2 mb-2 text-amber-400 font-mono text-xs font-bold uppercase tracking-wider">
                           <AlertCircle size={15} />
-                          <span>1. Situación & Desafío de Ingeniería</span>
+                          <span>{study.situationTitle}</span>
                         </div>
                         <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                           {study.situation}
@@ -183,7 +186,7 @@ export const CaseStudies = () => {
                       <div className="p-5 rounded-xl bg-surface border border-surface-border">
                         <div className="flex items-center gap-2 mb-2 text-secondary font-mono text-xs font-bold uppercase tracking-wider">
                           <Layers size={15} />
-                          <span>2. Tarea Arquitectónica</span>
+                          <span>{study.taskTitle}</span>
                         </div>
                         <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                           {study.task}
@@ -195,13 +198,14 @@ export const CaseStudies = () => {
                     <SystemDiagram
                       title={study.architectureFlow.title}
                       steps={study.architectureFlow.steps}
+                      stageLabel={t.caseStudies.stageLabel}
                     />
 
                     {/* Action & Results Grid */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                       <div className="p-5 rounded-xl bg-surface border border-surface-border">
                         <h4 className="text-xs font-mono font-bold text-primary uppercase tracking-wider mb-3">
-                          3. Decisiones Técnicas & Acciones Clave
+                          {study.actionsTitle}
                         </h4>
                         <ul className="space-y-2.5">
                           {study.action.map((act, idx) => (
@@ -216,7 +220,7 @@ export const CaseStudies = () => {
                       <div className="p-5 rounded-xl bg-surface border border-surface-border">
                         <div className="flex items-center gap-2 mb-3 text-primary font-mono text-xs font-bold uppercase tracking-wider">
                           <TrendingUp size={15} />
-                          <span>4. Resultados Cuantitativos & Impacto</span>
+                          <span>{study.resultsTitle}</span>
                         </div>
                         <ul className="space-y-2.5">
                           {study.result.map((res, idx) => (

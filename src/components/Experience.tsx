@@ -1,20 +1,22 @@
-import { experiences, education } from '@/data/experienceData';
 import { Briefcase, GraduationCap, MapPin, Calendar, CheckCircle2 } from 'lucide-react';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 export const Experience = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="experiencia" className="py-24 bg-background border-t border-surface-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-surface-border text-xs font-mono text-primary mb-3">
             <Briefcase size={14} />
-            <span>TRAYECTORIA & HISTORIAL</span>
+            <span>{t.experience.badge}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-display text-slate-100 tracking-tight mb-4">
-            Experiencia Profesional
+            {t.experience.title}
           </h2>
           <p className="text-base sm:text-lg text-slate-400">
-            Historial comprobado en empresas líderes de tecnología y dirección de proyectos de software.
+            {t.experience.subtitle}
           </p>
         </div>
 
@@ -23,10 +25,10 @@ export const Experience = () => {
           <div className="lg:col-span-2 space-y-6">
             <h3 className="text-lg font-bold font-mono text-slate-200 flex items-center gap-2 mb-4">
               <Briefcase size={18} className="text-primary" />
-              <span>Roles de Ingeniería & Liderazgo</span>
+              <span>{t.experience.rolesTitle}</span>
             </h3>
 
-            {experiences.map((exp, idx) => (
+            {t.experience.jobs.map((exp, idx) => (
               <div
                 key={idx}
                 className="p-6 sm:p-7 rounded-2xl bg-surface border border-surface-border hover:border-slate-500 transition-all space-y-4"
@@ -52,7 +54,7 @@ export const Experience = () => {
 
                 <div className="space-y-2 pt-2">
                   <p className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">
-                    Logros & Responsabilidades Clave:
+                    {t.experience.keyAchievements}
                   </p>
                   <ul className="space-y-2">
                     {exp.highlights.map((h, hIdx) => (
@@ -83,11 +85,11 @@ export const Experience = () => {
           <div className="space-y-6">
             <h3 className="text-lg font-bold font-mono text-slate-200 flex items-center gap-2 mb-4">
               <GraduationCap size={18} className="text-secondary" />
-              <span>Formación & Especialización</span>
+              <span>{t.experience.educationTitle}</span>
             </h3>
 
             <div className="space-y-4">
-              {education.map((edu, idx) => (
+              {t.experience.education.map((edu, idx) => (
                 <div
                   key={idx}
                   className="p-5 rounded-2xl bg-surface border border-surface-border space-y-2"
@@ -103,16 +105,16 @@ export const Experience = () => {
             {/* ATS Tip Box */}
             <div className="p-5 rounded-2xl bg-surface-elevated/60 border border-primary/20 space-y-3">
               <h4 className="text-xs font-mono font-bold text-primary uppercase tracking-wider">
-                Perfil Optimizado para ATS
+                {t.experience.atsTitle}
               </h4>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Currículum estructurado con métricas de impacto STAR, validación de background en plataformas masivas y disponibilidad inmediata para roles remotos o híbridos.
+                {t.experience.atsDescription}
               </p>
               <a
                 href="#contacto"
                 className="inline-flex items-center gap-2 text-xs font-bold text-primary hover:underline"
               >
-                <span>Solicitar CV en PDF formateado →</span>
+                <span>{t.experience.requestCv}</span>
               </a>
             </div>
           </div>

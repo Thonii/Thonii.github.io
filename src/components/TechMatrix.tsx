@@ -1,7 +1,9 @@
-import { techMatrix } from '@/data/techStackData';
 import { Database, Cpu, Code2, ShieldCheck, Check } from 'lucide-react';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 export const TechMatrix = () => {
+  const { t } = useLanguage();
+
   const getCategoryIcon = (idx: number) => {
     switch (idx) {
       case 0:
@@ -21,18 +23,18 @@ export const TechMatrix = () => {
         <div className="max-w-3xl mx-auto text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-surface-border text-xs font-mono text-secondary mb-3">
             <Code2 size={14} />
-            <span>STACK TECNOLÓGICO & COMPETENCIAS</span>
+            <span>{t.techMatrix.badge}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-display text-slate-100 tracking-tight mb-4">
-            Matriz de Ingeniería
+            {t.techMatrix.title}
           </h2>
           <p className="text-base sm:text-lg text-slate-400">
-            Tecnologías dominadas en producción para escala de datos, orquestación de IA y aplicaciones web robustas.
+            {t.techMatrix.subtitle}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {techMatrix.map((category, idx) => (
+          {t.techMatrix.categories.map((category, idx) => (
             <div
               key={idx}
               className="p-6 sm:p-7 rounded-2xl bg-surface border border-surface-border hover:border-slate-500 transition-all flex flex-col justify-between"
@@ -58,27 +60,24 @@ export const TechMatrix = () => {
                   {category.description}
                 </p>
 
+                {/* All skill badges styled with uniform high-contrast, active look */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   {category.technologies.map((tech) => (
                     <div
                       key={tech.name}
-                      className={`flex items-center justify-between p-2.5 rounded-lg border text-xs transition-colors ${
-                        tech.highlight
-                          ? 'bg-surface-elevated/90 border-surface-border text-slate-100 font-semibold'
-                          : 'bg-surface/50 border-surface-border/50 text-slate-300'
-                      }`}
+                      className="flex items-center justify-between p-3 rounded-xl bg-surface-elevated border border-surface-border/90 text-xs font-medium text-slate-100 hover:border-primary/50 transition-colors shadow-sm"
                     >
-                      <div className="flex items-center gap-2">
-                        <Check size={13} className="text-primary flex-shrink-0" />
-                        <span>{tech.name}</span>
+                      <div className="flex items-center gap-2.5">
+                        <Check size={14} className="text-primary flex-shrink-0" />
+                        <span className="font-semibold text-slate-100">{tech.name}</span>
                       </div>
                       <span
-                        className={`text-[10px] font-mono px-2 py-0.5 rounded ${
-                          tech.level === 'Experto'
-                            ? 'bg-primary/10 text-primary border border-primary/20'
-                            : tech.level === 'Avanzado'
-                            ? 'bg-secondary/10 text-secondary border border-secondary/20'
-                            : 'bg-surface border border-surface-border text-slate-400'
+                        className={`text-[10px] font-mono px-2 py-0.5 rounded-md font-semibold ${
+                          tech.level === 'Experto' || tech.level === 'Expert'
+                            ? 'bg-primary/15 text-primary border border-primary/30'
+                            : tech.level === 'Avanzado' || tech.level === 'Advanced'
+                            ? 'bg-secondary/15 text-secondary border border-secondary/30'
+                            : 'bg-accent/15 text-accent border border-accent/30'
                         }`}
                       >
                         {tech.level}

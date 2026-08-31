@@ -1,25 +1,27 @@
-import { githubRepos } from '@/data/githubReposData';
 import { Github, ExternalLink, Check } from 'lucide-react';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 export const GithubProjects = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="open-source" className="py-20 bg-surface/30 border-t border-surface-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-surface-border text-xs font-mono text-primary mb-3">
             <Github size={14} />
-            <span>PROOF OF CODE & REPOSITORIOS</span>
+            <span>{t.openSource.badge}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-display text-slate-100 tracking-tight mb-4">
-            Proyectos & Open Source
+            {t.openSource.title}
           </h2>
           <p className="text-base sm:text-lg text-slate-400">
-            Código limpio, modular, fuertemente tipado y versionado públicamente en GitHub.
+            {t.openSource.subtitle}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {githubRepos.map((repo, idx) => (
+          {t.openSource.repos.map((repo, idx) => (
             <div
               key={idx}
               className="p-6 sm:p-7 rounded-2xl bg-surface border border-surface-border hover:border-primary/60 transition-all flex flex-col justify-between group"
@@ -103,7 +105,7 @@ export const GithubProjects = () => {
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-surface border border-surface-border hover:border-slate-400 text-slate-200 font-semibold text-xs sm:text-sm transition-all"
           >
             <Github size={16} />
-            <span>Explorar todos los repositorios en github.com/Thonii →</span>
+            <span>{t.openSource.exploreAll}</span>
           </a>
         </div>
       </div>
