@@ -3,9 +3,9 @@
   "branch": "main",
   "packages": [],
   "recent_commits": [
+    "4084102 feat: update portfolio (ES/EN) and ATS PDF resume with AndeaField Suite ERP lead role and achievements",
     "7a0ad04 feat: implement MorphIcon component and integrate interactive iconography across UI elements",
-    "1382fa0 feat: embed updated ATS-friendly PDF CV with direct download links and new portfolio URL",
-    "c4b76e6 feat: add automatic i18n (ES/EN), calibrate roles and education, update public repos showcase"
+    "1382fa0 feat: embed updated ATS-friendly PDF CV with direct download links and new portfolio URL"
   ],
   "total_files": 22,
   "total_signatures": 18,

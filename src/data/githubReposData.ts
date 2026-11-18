@@ -1,7 +1,9 @@
 export interface GithubRepo {
   name: string;
-  repoUrl: string;
+  repoUrl?: string;
   liveUrl?: string;
+  isPrivate?: boolean;
+  privateLabel?: string;
   description: string;
   tags: string[];
   stars?: number;
@@ -11,41 +13,41 @@ export interface GithubRepo {
 
 export const githubRepos: GithubRepo[] = [
   {
-    name: 'andeafield-suite',
-    repoUrl: 'https://github.com/Thonii/AFActivacion',
-    liveUrl: 'https://andeafield-sjl.vercel.app',
+    name: 'AndeaField Suite (ERP Corporativo)',
+    isPrivate: true,
+    privateLabel: 'Privado · Producción',
     description:
-      'ERP Agro-Logístico Unificado Offline-First: Reparto GPS Haversine, Activación Territorial (48 zonas), Impresión Bluetooth ESC/POS 80mm, Portal QR Reed-Solomon y Gateway WhatsApp FastAPI.',
-    tags: ['Next.js 14', 'TypeScript', 'Supabase RLS', 'Dexie Offline', 'FastAPI', 'ESC/POS'],
+      'Plataforma integral privada para distribución mayorista: Reparto con bloqueo GPS Haversine, Activación en 48 zonas, Impresión Bluetooth de 80mm, Portal Cliente con QR y Bot de WhatsApp en Python.',
+    tags: ['Next.js 14', 'TypeScript', 'Supabase RLS', 'Operación sin Red', 'FastAPI', 'Impresión BT'],
     language: 'TypeScript',
-    features: ['329 Tests (Vitest/Pytest)', 'Web Bluetooth 80mm', 'WhatsApp Signal E2EE'],
+    features: ['329 Pruebas Automatizadas', 'Impresión Térmica 80mm', 'Código Privado Protegido'],
   },
   {
-    name: 'tecnoancon-lake',
+    name: 'tecnoancon-lake (Grafo de Conocimiento)',
     repoUrl: 'https://github.com/Thonii/sysmap-app',
     description:
-      'Grafo de conocimiento vivo con motor SQLite FTS5 y protocolo de Context Slicing (L0-L3) para cosechar arquitecturas, ADRs y alimentar agentes de IA sin arranques en frío.',
-    tags: ['Knowledge Graph', 'SQLite FTS5', 'Context Slicing', 'TypeScript', 'Python'],
+      'Sistema de memoria técnica indexado con SQLite FTS5 e inyección de contexto por capas (L0-L3) para documentar arquitecturas y acelerar asistentes de IA reduciendo costos.',
+    tags: ['Base de Conocimiento', 'SQLite FTS5', 'Arquitectura IA', 'TypeScript', 'Python'],
     language: 'TypeScript',
-    features: ['Ahorro 60% tokens', 'AST Repomap <100ms', 'Harvester Multi-Repo'],
+    features: ['Ahorro 60% en Tokens', 'Mapa de Código <100ms', 'Auditoría Multi-Proyecto'],
   },
   {
-    name: 'nexo-legal & n8n-portf',
+    name: 'nexo-legal y n8n-portf',
     repoUrl: 'https://github.com/Thonii/nexo-legal',
     description:
-      'Plataforma LegalTech para análisis inteligente de contratos y flujos automatizados en n8n para onboarding, firma y aprovisionamiento multicanal.',
-    tags: ['LegalTech', 'Python', 'n8n', 'AI Analysis', 'Automation'],
+      'Plataforma de tecnología legal para revisión automatizada de contratos en Python, acompañada de flujos en n8n para alta de clientes y notificaciones.',
+    tags: ['LegalTech', 'Python', 'n8n', 'Análisis Documental', 'Automatización'],
     language: 'Python',
-    features: ['Extracción de cláusulas', 'Aprovisionamiento n8n', 'Seguridad OWASP'],
+    features: ['Extracción de cláusulas', 'Flujos automáticos n8n', 'Seguridad de datos'],
   },
   {
-    name: 'Thonii.github.io',
+    name: 'Thonii.github.io (Este Portafolio)',
     repoUrl: 'https://github.com/Thonii/Thonii.github.io',
     liveUrl: 'https://thonii.github.io',
     description:
-      'Código fuente de este portafolio de ingeniería corporativa. Construido con React 18, Vite, TypeScript estricto, motor nativo de SVG Morphing (Spring Physics) y Tailwind CSS.',
-    tags: ['Portfolio', 'React 18', 'TypeScript', 'SVG Morphing', 'Solarpunk'],
+      'Código fuente abierto de este portafolio profesional. Desarrollado con React 18, Vite, TypeScript estricto, motor propio de animación vectorial de iconos y despliegue continuo.',
+    tags: ['Portafolio', 'React 18', 'TypeScript', 'Animación SVG', 'Solarpunk'],
     language: 'TypeScript',
-    features: ['i18n Automático (ES/EN)', 'Spring Physics SVG', 'Mobile-First 360x800px'],
+    features: ['Bilingüe Español / Inglés', 'Físicas de Resorte SVG', 'Diseño Móvil 360x800px'],
   },
 ];

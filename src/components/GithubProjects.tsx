@@ -1,4 +1,4 @@
-import { Github, ExternalLink, Check } from 'lucide-react';
+import { Github, ExternalLink, Check, Lock } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 
 export const GithubProjects = () => {
@@ -36,6 +36,15 @@ export const GithubProjects = () => {
                   </div>
 
                   <div className="flex items-center gap-2">
+                    {repo.isPrivate && (
+                      <span
+                        className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-400 text-[11px] font-mono font-semibold"
+                        title={repo.privateLabel || 'Repositorio Privado Corporativo'}
+                      >
+                        <Lock size={12} />
+                        <span>{repo.privateLabel || 'Privado'}</span>
+                      </span>
+                    )}
                     {repo.liveUrl && (
                       <a
                         href={repo.liveUrl}
@@ -48,16 +57,18 @@ export const GithubProjects = () => {
                         <ExternalLink size={15} />
                       </a>
                     )}
-                    <a
-                      href={repo.repoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-1.5 rounded-lg bg-surface-elevated border border-surface-border text-slate-300 hover:text-slate-100 transition-colors"
-                      title="Ver repositorio en GitHub"
-                      aria-label={`Ver código fuente de ${repo.name}`}
-                    >
-                      <Github size={15} />
-                    </a>
+                    {repo.repoUrl && (
+                      <a
+                        href={repo.repoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-1.5 rounded-lg bg-surface-elevated border border-surface-border text-slate-300 hover:text-slate-100 transition-colors"
+                        title="Ver repositorio en GitHub"
+                        aria-label={`Ver código fuente de ${repo.name}`}
+                      >
+                        <Github size={15} />
+                      </a>
+                    )}
                   </div>
                 </div>
 

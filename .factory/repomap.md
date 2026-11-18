@@ -4,17 +4,16 @@
 - **Archivos escaneados:** 22 | **Firmas exportadas:** 18
 
 ## Recent Commits
+- `4084102 feat: update portfolio (ES/EN) and ATS PDF resume with AndeaField Suite ERP lead role and achievements`
 - `7a0ad04 feat: implement MorphIcon component and integrate interactive iconography across UI elements`
 - `1382fa0 feat: embed updated ATS-friendly PDF CV with direct download links and new portfolio URL`
-- `c4b76e6 feat: add automatic i18n (ES/EN), calibrate roles and education, update public repos showcase`
 
 ## Git Status (Delta Activo)
 - `M public/Anthony_Villalobos_CV.pdf`
 - ` M public/resume-anthony-villalobos.pdf`
-- ` M src/data/caseStudiesData.ts`
+- ` M src/components/GithubProjects.tsx`
 - ` M src/data/experienceData.ts`
 - ` M src/data/githubReposData.ts`
-- ` M src/data/techStackData.ts`
 - ` M src/i18n/translations.ts`
 
 ## Public API & Symbol Skeletons
