@@ -11,41 +11,41 @@ export interface GithubRepo {
 
 export const githubRepos: GithubRepo[] = [
   {
-    name: 'tecnoancon-lake',
-    repoUrl: 'https://github.com/Thonii/tecnoancon-lake',
+    name: 'andeafield-suite',
+    repoUrl: 'https://github.com/Thonii/AFActivacion',
+    liveUrl: 'https://andeafield-sjl.vercel.app',
     description:
-      'Grafo de conocimiento vivo y sistema de persistencia de contexto L0-L3 para alimentar agentes de software factory de forma quirúrgica.',
-    tags: ['Context Slicing', 'Knowledge Graph', 'Python', 'AI-Native'],
-    language: 'Python',
-    features: ['Reducción 60% tokens', 'Generación AST Repomap <100ms', 'ADR Registry'],
-  },
-  {
-    name: 'POSito',
-    repoUrl: 'https://github.com/Thonii/POSito',
-    liveUrl: 'https://posito.tecnoancon.com',
-    description:
-      'Sistema POS y control de inventarios táctil para Android y web. Diseñado bajo principios Mobile-First (360x800px) y arquitectura offline-ready.',
-    tags: ['Mobile-First', 'Local-First', 'TypeScript', 'Tailwind'],
+      'ERP Agro-Logístico Unificado Offline-First: Reparto GPS Haversine, Activación Territorial (48 zonas), Impresión Bluetooth ESC/POS 80mm, Portal QR Reed-Solomon y Gateway WhatsApp FastAPI.',
+    tags: ['Next.js 14', 'TypeScript', 'Supabase RLS', 'Dexie Offline', 'FastAPI', 'ESC/POS'],
     language: 'TypeScript',
-    features: ['100% Uptime Offline', 'Respuesta táctil <50ms', 'Sync seguro'],
+    features: ['329 Tests (Vitest/Pytest)', 'Web Bluetooth 80mm', 'WhatsApp Signal E2EE'],
   },
   {
-    name: 'inti-ai-orchestrator',
-    repoUrl: 'https://github.com/Thonii/inti-ai',
+    name: 'tecnoancon-lake',
+    repoUrl: 'https://github.com/Thonii/sysmap-app',
     description:
-      'Motor de orquestación de agentes autónomos y flujos de automatización inteligentes integrados con n8n, FastAPI y guardrails de seguridad.',
-    tags: ['Multi-Agent', 'n8n', 'Python', 'FastAPI', 'LLMs'],
+      'Grafo de conocimiento vivo con motor SQLite FTS5 y protocolo de Context Slicing (L0-L3) para cosechar arquitecturas, ADRs y alimentar agentes de IA sin arranques en frío.',
+    tags: ['Knowledge Graph', 'SQLite FTS5', 'Context Slicing', 'TypeScript', 'Python'],
+    language: 'TypeScript',
+    features: ['Ahorro 60% tokens', 'AST Repomap <100ms', 'Harvester Multi-Repo'],
+  },
+  {
+    name: 'nexo-legal & n8n-portf',
+    repoUrl: 'https://github.com/Thonii/nexo-legal',
+    description:
+      'Plataforma LegalTech para análisis inteligente de contratos y flujos automatizados en n8n para onboarding, firma y aprovisionamiento multicanal.',
+    tags: ['LegalTech', 'Python', 'n8n', 'AI Analysis', 'Automation'],
     language: 'Python',
-    features: ['Tool Sandboxing', 'Validación Zod/Pydantic', 'Event-Driven'],
+    features: ['Extracción de cláusulas', 'Aprovisionamiento n8n', 'Seguridad OWASP'],
   },
   {
     name: 'Thonii.github.io',
     repoUrl: 'https://github.com/Thonii/Thonii.github.io',
     liveUrl: 'https://thonii.github.io',
     description:
-      'Código fuente de este portafolio de ingeniería corporativa. Construido con React, Vite, TypeScript estricto y Tailwind CSS.',
-    tags: ['Portfolio', 'React', 'Vite', 'GitHub Actions', 'Solarpunk'],
+      'Código fuente de este portafolio de ingeniería corporativa. Construido con React 18, Vite, TypeScript estricto, motor nativo de SVG Morphing (Spring Physics) y Tailwind CSS.',
+    tags: ['Portfolio', 'React 18', 'TypeScript', 'SVG Morphing', 'Solarpunk'],
     language: 'TypeScript',
-    features: ['CI/CD Automático', 'Lighthouse 100/100', 'Zero bloat'],
+    features: ['i18n Automático (ES/EN)', 'Spring Physics SVG', 'Mobile-First 360x800px'],
   },
 ];

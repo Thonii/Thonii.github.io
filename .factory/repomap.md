@@ -4,20 +4,18 @@
 - **Archivos escaneados:** 22 | **Firmas exportadas:** 18
 
 ## Recent Commits
+- `7a0ad04 feat: implement MorphIcon component and integrate interactive iconography across UI elements`
 - `1382fa0 feat: embed updated ATS-friendly PDF CV with direct download links and new portfolio URL`
 - `c4b76e6 feat: add automatic i18n (ES/EN), calibrate roles and education, update public repos showcase`
-- `aaed14b feat: initial corporate engineering portfolio for thonii.github.io`
 
 ## Git Status (Delta Activo)
-- `M src/components/CaseStudies.tsx`
-- ` M src/components/ContactSection.tsx`
-- ` M src/components/Footer.tsx`
-- ` M src/components/HeroSection.tsx`
-- ` M src/components/Navigation.tsx`
-- ` M src/components/TechMatrix.tsx`
-- ` M src/index.css`
-- `?? .factory/`
-- `?? src/components/ui/`
+- `M public/Anthony_Villalobos_CV.pdf`
+- ` M public/resume-anthony-villalobos.pdf`
+- ` M src/data/caseStudiesData.ts`
+- ` M src/data/experienceData.ts`
+- ` M src/data/githubReposData.ts`
+- ` M src/data/techStackData.ts`
+- ` M src/i18n/translations.ts`
 
 ## Public API & Symbol Skeletons
 ### `src/App.tsx`

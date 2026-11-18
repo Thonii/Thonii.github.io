@@ -1,0 +1,5 @@
+# Architectural Decision Records (ADRs)
+
+- **[2026-08-31] [Core]**: Adopción de la Constitución Global de la Software Factory con arquitectura Context Slicing (L0-L3) y Mobile-First 360x800px.
+- **[2026-08-31] [UI/UX]**: Integración de capacidades de SVG Morphing interactivo y micro-interacciones de resorte (`MorphIcon.tsx`) sin dependencias externas para modernizar la interfaz corporativa.
+- **[2026-11-18] [Portfolio & CV Sync]**: Sincronización integral del portafolio bilingüe (`ES`/`EN`) y CV ATS-friendly en PDF (1 página A4) con los hallazgos del Knowledge Lake (`tecnoancon-lake`), posicionando a **AndeaField (AFCORP)** como rol actual principal (*Lead Software & Operations Systems Engineer*) y destacando activos de alto impacto: ERP Modular Offline-First (Dexie + Outbox Pattern), impresión térmica Bluetooth ESC/POS 80mm, generador QR vectorial Reed-Solomon GF(256), Guard GPS Haversine 200m, Gateway WhatsApp FastAPI + Evolution API v2 con criptografía Signal E2EE (`@lid`) y suite de 329 pruebas automatizadas.
