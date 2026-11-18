@@ -2,12 +2,13 @@ export interface GithubRepo {
   name: string;
   repoUrl?: string;
   liveUrl?: string;
+  links?: { label: string; url: string }[];
   isPrivate?: boolean;
   privateLabel?: string;
   description: string;
   tags: string[];
   stars?: number;
-  language: 'TypeScript' | 'Python' | 'SQL' | 'Rust';
+  language: 'TypeScript' | 'Python' | 'SQL' | 'Rust' | 'Python / TypeScript' | 'Python / JavaScript';
   features: string[];
 }
 
@@ -23,22 +24,28 @@ export const githubRepos: GithubRepo[] = [
     features: ['329 Pruebas Automatizadas', 'Impresión Térmica 80mm', 'Código Privado Protegido'],
   },
   {
-    name: 'tecnoancon-lake (Grafo de Conocimiento)',
-    repoUrl: 'https://github.com/Thonii/sysmap-app',
+    name: 'Perú Monitor (Core API & UI Mapa)',
+    links: [
+      { label: 'peru-monitor-core', url: 'https://github.com/Thonii/peru-monitor-core' },
+      { label: 'peru-monitor-ui', url: 'https://github.com/Thonii/peru-monitor-ui' },
+    ],
     description:
-      'Sistema de memoria técnica indexado con SQLite FTS5 e inyección de contexto por capas (L0-L3) para documentar arquitecturas y acelerar asistentes de IA reduciendo costos.',
-    tags: ['Base de Conocimiento', 'SQLite FTS5', 'Arquitectura IA', 'TypeScript', 'Python'],
-    language: 'TypeScript',
-    features: ['Ahorro 60% en Tokens', 'Mapa de Código <100ms', 'Auditoría Multi-Proyecto'],
+      'Plataforma de inteligencia situacional en tiempo real que consolida sismos (USGS/IGP), clima y conflictos sociales en el Perú. Incluye motor backend en Python FastAPI con Gemini 2.5 Flash y mapa interactivo Next.js + Leaflet.',
+    tags: ['FastAPI', 'Gemini AI', 'Next.js', 'Leaflet Maps', 'Python', 'Telegram Bot'],
+    language: 'Python / TypeScript',
+    features: ['Análisis y Geolocalización IA', 'Alertas en Telegram', 'Mapa Móvil 360x800px'],
   },
   {
-    name: 'nexo-legal y n8n-portf',
-    repoUrl: 'https://github.com/Thonii/nexo-legal',
+    name: 'nexo-legal & n8n-portf',
+    links: [
+      { label: 'nexo-legal', url: 'https://github.com/Thonii/nexo-legal' },
+      { label: 'n8n-portf', url: 'https://github.com/Thonii/n8n-portf' },
+    ],
     description:
-      'Plataforma de tecnología legal para revisión automatizada de contratos en Python, acompañada de flujos en n8n para alta de clientes y notificaciones.',
+      'Plataforma de tecnología legal en Python para revisión inteligente de contratos (nexo-legal) y flujos automatizados en n8n para alta de clientes, firma y aprovisionamiento multicanal (n8n-portf).',
     tags: ['LegalTech', 'Python', 'n8n', 'Análisis Documental', 'Automatización'],
-    language: 'Python',
-    features: ['Extracción de cláusulas', 'Flujos automáticos n8n', 'Seguridad de datos'],
+    language: 'Python / JavaScript',
+    features: ['Extracción de cláusulas', 'Flujos automáticos n8n', 'Seguridad de datos OWASP'],
   },
   {
     name: 'Thonii.github.io (Este Portafolio)',

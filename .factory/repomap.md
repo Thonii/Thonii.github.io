@@ -4,15 +4,14 @@
 - **Archivos escaneados:** 22 | **Firmas exportadas:** 18
 
 ## Recent Commits
+- `6abfc45 fix(i18n,security): humanize Spanish version for Lima market and remove private AndeaField prototype links`
 - `4084102 feat: update portfolio (ES/EN) and ATS PDF resume with AndeaField Suite ERP lead role and achievements`
 - `7a0ad04 feat: implement MorphIcon component and integrate interactive iconography across UI elements`
-- `1382fa0 feat: embed updated ATS-friendly PDF CV with direct download links and new portfolio URL`
 
 ## Git Status (Delta Activo)
 - `M public/Anthony_Villalobos_CV.pdf`
 - ` M public/resume-anthony-villalobos.pdf`
 - ` M src/components/GithubProjects.tsx`
-- ` M src/data/experienceData.ts`
 - ` M src/data/githubReposData.ts`
 - ` M src/i18n/translations.ts`
 

@@ -115,6 +115,7 @@ export interface TranslationSchema {
       name: string;
       repoUrl?: string;
       liveUrl?: string;
+      links?: { label: string; url: string }[];
       isPrivate?: boolean;
       privateLabel?: string;
       description: string;
@@ -664,7 +665,7 @@ export const translations: Record<Language, TranslationSchema> = {
       badge: 'SISTEMAS Y REPOSITORIOS',
       title: 'Proyectos Destacados y Código',
       subtitle:
-        'Plataformas empresariales privadas bajo acuerdos de confidencialidad y herramientas propias de código abierto en GitHub.',
+        'Plataformas empresariales privadas bajo acuerdos de confidencialidad y proyectos propios de código abierto en GitHub.',
       exploreAll: 'Explorar repositorios públicos en github.com/Thonii →',
       repos: [
         {
@@ -678,22 +679,28 @@ export const translations: Record<Language, TranslationSchema> = {
           features: ['329 Pruebas Automatizadas', 'Impresión Térmica 80mm', 'Código Privado Protegido'],
         },
         {
-          name: 'tecnoancon-lake (Grafo de Conocimiento)',
-          repoUrl: 'https://github.com/Thonii/sysmap-app',
+          name: 'Perú Monitor (Core API & UI Mapa)',
+          links: [
+            { label: 'peru-monitor-core', url: 'https://github.com/Thonii/peru-monitor-core' },
+            { label: 'peru-monitor-ui', url: 'https://github.com/Thonii/peru-monitor-ui' },
+          ],
           description:
-            'Sistema de memoria técnica indexado con SQLite FTS5 e inyección de contexto por capas (L0-L3) para documentar arquitecturas y acelerar asistentes de IA reduciendo costos.',
-          tags: ['Base de Conocimiento', 'SQLite FTS5', 'Arquitectura IA', 'TypeScript', 'Python'],
-          language: 'TypeScript',
-          features: ['Ahorro 60% en Tokens', 'Mapa de Código <100ms', 'Auditoría Multi-Proyecto'],
+            'Plataforma de inteligencia situacional en tiempo real que consolida sismos (USGS/IGP), clima y conflictos sociales en el Perú. Incluye motor backend en Python FastAPI con Gemini 2.5 Flash y mapa interactivo Next.js + Leaflet.',
+          tags: ['FastAPI', 'Gemini AI', 'Next.js', 'Leaflet Maps', 'Python', 'Telegram Bot'],
+          language: 'Python / TypeScript',
+          features: ['Análisis y Geolocalización IA', 'Alertas en Telegram', 'Mapa Móvil 360x800px'],
         },
         {
-          name: 'nexo-legal y n8n-portf',
-          repoUrl: 'https://github.com/Thonii/nexo-legal',
+          name: 'nexo-legal & n8n-portf',
+          links: [
+            { label: 'nexo-legal', url: 'https://github.com/Thonii/nexo-legal' },
+            { label: 'n8n-portf', url: 'https://github.com/Thonii/n8n-portf' },
+          ],
           description:
-            'Plataforma de tecnología legal para revisión automatizada de contratos en Python, acompañada de flujos en n8n para alta de clientes y notificaciones.',
+            'Plataforma de tecnología legal en Python para revisión inteligente de contratos (nexo-legal) y flujos automatizados en n8n para alta de clientes, firma y aprovisionamiento multicanal (n8n-portf).',
           tags: ['LegalTech', 'Python', 'n8n', 'Análisis Documental', 'Automatización'],
-          language: 'Python',
-          features: ['Extracción de cláusulas', 'Flujos automáticos n8n', 'Seguridad de datos'],
+          language: 'Python / JavaScript',
+          features: ['Extracción de cláusulas', 'Flujos automáticos n8n', 'Seguridad de datos OWASP'],
         },
         {
           name: 'Thonii.github.io (Este Portafolio)',
@@ -1262,21 +1269,27 @@ export const translations: Record<Language, TranslationSchema> = {
           features: ['329 Automated Tests', 'Web Bluetooth 80mm', 'Private Corporate Repo'],
         },
         {
-          name: 'tecnoancon-lake (Knowledge Graph)',
-          repoUrl: 'https://github.com/Thonii/sysmap-app',
+          name: 'Perú Monitor (Core API & Map UI)',
+          links: [
+            { label: 'peru-monitor-core', url: 'https://github.com/Thonii/peru-monitor-core' },
+            { label: 'peru-monitor-ui', url: 'https://github.com/Thonii/peru-monitor-ui' },
+          ],
           description:
-            'Living Knowledge Graph powered by SQLite FTS5 and L0-L3 Context Slicing protocol to harvest architectures, ADRs, and feed AI agents with zero cold starts.',
-          tags: ['Knowledge Graph', 'SQLite FTS5', 'Context Slicing', 'TypeScript', 'Python'],
-          language: 'TypeScript',
-          features: ['60% Token Savings', 'AST Repomap <100ms', 'Multi-Repo Harvester'],
+            'Real-time situational intelligence platform consolidating seismic events (USGS/IGP), weather, and social conflicts in Peru. Features a Python FastAPI backend with Gemini 2.5 Flash NLP and a Next.js + Leaflet map frontend.',
+          tags: ['FastAPI', 'Gemini AI', 'Next.js', 'Leaflet Maps', 'Python', 'Telegram Bot'],
+          language: 'Python / TypeScript',
+          features: ['AI Geolocation & NLP', 'Telegram Critical Alerts', 'Mobile-First 360x800px'],
         },
         {
           name: 'nexo-legal & n8n-portf',
-          repoUrl: 'https://github.com/Thonii/nexo-legal',
+          links: [
+            { label: 'nexo-legal', url: 'https://github.com/Thonii/nexo-legal' },
+            { label: 'n8n-portf', url: 'https://github.com/Thonii/n8n-portf' },
+          ],
           description:
-            'LegalTech platform for intelligent contract analysis paired with automated n8n workflows for client onboarding, signing, and multi-channel provisioning.',
+            'LegalTech platform in Python for intelligent contract analysis (nexo-legal) paired with automated n8n workflows for client onboarding, signing, and multi-channel provisioning (n8n-portf).',
           tags: ['LegalTech', 'Python', 'n8n', 'AI Analysis', 'Automation'],
-          language: 'Python',
+          language: 'Python / JavaScript',
           features: ['Clause extraction', 'n8n provisioning', 'OWASP security'],
         },
         {

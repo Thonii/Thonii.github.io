@@ -27,15 +27,15 @@ export const GithubProjects = () => {
               className="p-6 sm:p-7 rounded-2xl bg-surface border border-surface-border hover:border-primary/60 transition-all flex flex-col justify-between group"
             >
               <div className="space-y-4">
-                <div className="flex items-center justify-between">
+                <div className="flex items-start justify-between gap-3">
                   <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-primary" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-primary flex-shrink-0" />
                     <h3 className="text-lg font-bold font-mono text-slate-100 group-hover:text-primary transition-colors">
                       {repo.name}
                     </h3>
                   </div>
 
-                  <div className="flex items-center gap-2">
+                  <div className="flex flex-wrap items-center justify-end gap-1.5">
                     {repo.isPrivate && (
                       <span
                         className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-400 text-[11px] font-mono font-semibold"
@@ -45,29 +45,48 @@ export const GithubProjects = () => {
                         <span>{repo.privateLabel || 'Privado'}</span>
                       </span>
                     )}
-                    {repo.liveUrl && (
-                      <a
-                        href={repo.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-1.5 rounded-lg bg-surface-elevated border border-surface-border text-slate-300 hover:text-primary transition-colors"
-                        title="Ver demo en vivo"
-                        aria-label={`Ver demo de ${repo.name}`}
-                      >
-                        <ExternalLink size={15} />
-                      </a>
-                    )}
-                    {repo.repoUrl && (
-                      <a
-                        href={repo.repoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-1.5 rounded-lg bg-surface-elevated border border-surface-border text-slate-300 hover:text-slate-100 transition-colors"
-                        title="Ver repositorio en GitHub"
-                        aria-label={`Ver código fuente de ${repo.name}`}
-                      >
-                        <Github size={15} />
-                      </a>
+                    {repo.links && repo.links.length > 0 ? (
+                      repo.links.map((link) => (
+                        <a
+                          key={link.url}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-surface-elevated border border-surface-border text-slate-200 hover:text-primary hover:border-primary/60 text-xs font-mono font-semibold transition-colors"
+                          title={`Ver repositorio ${link.label}`}
+                          aria-label={`Ver código fuente de ${link.label}`}
+                        >
+                          <Github size={13} />
+                          <span>{link.label}</span>
+                        </a>
+                      ))
+                    ) : (
+                      <>
+                        {repo.liveUrl && (
+                          <a
+                            href={repo.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-1.5 rounded-lg bg-surface-elevated border border-surface-border text-slate-300 hover:text-primary transition-colors"
+                            title="Ver demo en vivo"
+                            aria-label={`Ver demo de ${repo.name}`}
+                          >
+                            <ExternalLink size={15} />
+                          </a>
+                        )}
+                        {repo.repoUrl && (
+                          <a
+                            href={repo.repoUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-1.5 rounded-lg bg-surface-elevated border border-surface-border text-slate-300 hover:text-slate-100 transition-colors"
+                            title="Ver repositorio en GitHub"
+                            aria-label={`Ver código fuente de ${repo.name}`}
+                          >
+                            <Github size={15} />
+                          </a>
+                        )}
+                      </>
                     )}
                   </div>
                 </div>
